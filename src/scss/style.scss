@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@use '_reset';
+@use 'global/_index.scss' as *;
+@use 'components/card/_details.scss' as *;
+
+
+/* style */ 
+.board {
+    width: 100%;
+    max-width: 1440px;
+    padding: 164px 15px;
+    background: #ECF2F8;
+    margin: 300px auto;
+    @media screen and (max-width: 1150px) {
+        padding: 71px 25px;
+    }
+    .base {
+        width: 100%;
+        max-width: 1110px;
+        margin: 0 auto;
+        .card {
+            &__cover {
+                display: flex;
+                justify-content: center;
+                gap: 24px 30px;
+                @media screen and (max-width: 1150px) {
+                    flex-direction: column;
+                }
+                .normal__form {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 24px 30px;
+                    width: 100%;
+                    max-width: 825px;
+                    @media screen and (max-width: 1150px) {
+                        margin: 0 auto;
+                    }
+                    @media screen and (max-width: 900px) {
+                        max-width: 540px;
+                        justify-content: center;
+                    }
+                    @media screen and (max-width: 767px) {
+                        max-width: 100%;
+                    }
+                }
+                .special__form {
+                    width: 100%;
+                    max-width: 255px;
+                    @media screen and (max-width: 1150px) {
+                        margin: 0 auto;
+                        max-width: 825px;
+                    }
+                    @media screen and (max-width: 900px) {
+                        max-width: 540px;
+                    }
+                    @media screen and (max-width: 767px) {
+                        max-width: 100%;
+                    }
+                }
+            }
+            &01 {
+                @include card($bgColor:#733FC8, $width: 540px,  $borderColor: #a775f1);
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    right: 80px;
+                    z-index: 0;
+                    width: 104px;
+                    height: 102px;
+                    background: url(../../../../build/imgs/bg-pattern-quotation.svg) no-repeat 50% 50% / cover;
+                    @media screen and (max-width: 767px) {
+                        right: 24px;
+                    }
+                }
+            }
+            &02 {
+                @include card($bgColor:$cardColor02);
+            }
+            &03 {
+                @include card($bgColor:$cardColor03,$color: #48556A, $ttlColor: #48556A, $txtColor: rgba(72, 85, 106, 0.7), );
+            }
+            &04 {
+                @include card($bgColor:$cardColor04,$width: 540px, $borderColor:#733FC8);
+            }
+            &05 {
+                @include card($bgColor:$cardColor05, $ttlColor: #48556A, $txtColor: rgba(72, 85, 106, 0.7));
+                @media screen and (max-width: 1150px) {
+                    @include card($bgColor:$cardColor05, $width: 100%,$ttlColor: #48556A, $txtColor: rgba(72, 85, 106, 0.7));
+                }
+            }
+        }
+    }
+}
+/* style */ 
+
